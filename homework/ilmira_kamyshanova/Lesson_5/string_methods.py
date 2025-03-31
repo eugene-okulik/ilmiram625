@@ -3,7 +3,7 @@ text_2 = 'результат операции: 514'
 text_3 = 'результат работы программы: 9'
 
 index_of_number_1 = text_1.index(':') + 2
-index_of_number_2 = text_2.index(':') + 2 #equal with index_of_number_1
+index_of_number_2 = text_2.index(':') + 2
 index_of_number_3 = text_3.index(':') + 2
 
 number_1 = int(text_1[index_of_number_1:])
