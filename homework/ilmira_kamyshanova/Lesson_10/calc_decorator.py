@@ -1,6 +1,7 @@
 first_number = int(input("Enter first number: "))
 second_number = int(input("Enter second number: "))
 
+
 def calc_decorator(func):
 
     def wrapper(first, second):
@@ -15,6 +16,7 @@ def calc_decorator(func):
         return func(first, second, operation)
 
     return wrapper
+
 
 @calc_decorator
 def calc(first, second, operation):
@@ -31,5 +33,6 @@ def calc(first, second, operation):
             print('Error! Can`t divide to zero!')
     else:
         print('There is no math operation. Try again, please!')
+
 
 print(f'Result is: {calc(first_number, second_number)}')
