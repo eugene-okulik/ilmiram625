@@ -48,9 +48,9 @@ geometric_class_book = ClassBook('Геометрия', 'Иванов', 200, 3456
 history_class_book = ClassBook('История России', 'Петров', 150, 34567780,
                                False, 'История', 5, False)
 biology_class_book = ClassBook('Анатомия человека', 'Каменский', 210, 34567781,
-                               False,'Биология', 9, False)
+                               False, 'Биология', 9, False)
 chemistry_class_book = ClassBook('Органическая химия', 'Цой', 210, 34567782,
-                               False,'Химия', 11, True)
+                                 False, 'Химия', 11, True)
 
 
 print('Книги: ')
