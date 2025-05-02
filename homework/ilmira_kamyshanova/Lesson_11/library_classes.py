@@ -34,7 +34,6 @@ class ClassBook(Book):
                   f'предмет: {self.subject}, класс: {self.class_number}')
 
 
-
 idiot_book = Book('Идиот', 'Достоевский', 500, 123455677, True)
 dead_souls_book = Book('Мертвые души', 'Достоевский', 600, 123455678, False)
 demons_book = Book('Бесы', 'Достоевский', 400, 123455679, False)
