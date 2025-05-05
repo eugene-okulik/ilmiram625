@@ -94,10 +94,10 @@ class Bouquet():
         return cost
 
     def sort_by_fresh(self):
-        return sorted(self.bouquet, key = lambda flower : flower.life_time, reverse = True)
+        return sorted(self.bouquet, key=lambda flower: flower.life_time, reverse=True)
 
     def sort_by_height(self):
-        return sorted(self.bouquet, key = lambda flower : flower.height)
+        return sorted(self.bouquet, key=lambda flower: flower.height)
 
     def sort_by_cost(self):
         return sorted(self.bouquet, key=lambda flower: flower.cost)
