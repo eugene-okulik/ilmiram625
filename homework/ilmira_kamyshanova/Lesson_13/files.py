@@ -4,10 +4,12 @@ import datetime
 homework_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 data_file_path = os.path.join(homework_path, 'eugene_okulik', 'hw_13', 'data.txt')
 
+
 def read_file():
     with open(data_file_path, 'r') as data_file:
         for line in data_file.readlines():
             yield line
+
 
 date_list = []
 
