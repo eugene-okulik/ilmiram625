@@ -93,17 +93,8 @@ class Bouquet():
             cost += flower.cost
         return cost
 
-    def sort_by_fresh(self):
-        return sorted(self.bouquet, key=lambda flower: flower.life_time, reverse=True)
-
-    def sort_by_height(self):
-        return sorted(self.bouquet, key=lambda flower: flower.height)
-
-    def sort_by_cost(self):
-        return sorted(self.bouquet, key=lambda flower: flower.cost)
-
-    def sort_by_color(self):
-        return sorted(self.bouquet, key=lambda flower: flower.color)
+    def sort_by(self, key, reverse=False):
+        return sorted(self.bouquet, key=lambda flower: getattr(flower, key), reverse=reverse)
 
     def find_by_color(self, color):
         return [flower for flower in self.bouquet if flower.color == color]
@@ -133,8 +124,8 @@ bouquet.add_flower(chamomile)
 print(bouquet, '\n')
 print(f'Стоимость букета: {bouquet.cost_of_bouquet()}\n')
 print(f'Время стояния букета (в днях): {bouquet.life_time_of_bouquet()}\n')
-print(f'Цветы в букете по убыванию свежести: \n{bouquet.sort_by_fresh()}\n')
-print(f'Цветы в букете по возрастанию длины стебеля: \n{bouquet.sort_by_height()}\n')
-print(f'Цветы в букете по возрастанию стоимости: \n{bouquet.sort_by_cost()}\n')
-print(f'Цветы в букете отсортированные по цветам: \n{bouquet.sort_by_color()}\n')
+print(f'Цветы в букете по убыванию свежести: \n{bouquet.sort_by("life_time")}\n')
+print(f'Цветы в букете по возрастанию длины стебеля: \n{bouquet.sort_by("height")}\n')
+print(f'Цветы в букете по возрастанию стоимости: \n{bouquet.sort_by("cost")}\n')
+print(f'Цветы в букете отсортированные по цветам: \n{bouquet.sort_by("color")}\n')
 print(f'Цветы красного цвета в букете: {bouquet.find_by_color("красный")}')
