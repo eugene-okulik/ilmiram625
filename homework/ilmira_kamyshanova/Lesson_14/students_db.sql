@@ -37,7 +37,7 @@ JOIN `groups` g ON s.group_id = g.id
 JOIN books b ON s.id = b.taken_by_student_id 
 JOIN marks m ON s.id = m.student_id 
 JOIN lessons l ON l.id = m.lesson_id 
-JOIN subjets sub ON sub.id = l.subject_id 
+JOIN subjets sub ON sub.id = l.subject_id
 WHERE s.id = 20298
 
 
