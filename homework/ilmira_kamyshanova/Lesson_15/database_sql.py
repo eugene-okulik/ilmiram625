@@ -9,34 +9,34 @@ db = mysql.connect(
     database='st-onl'
 )
 
-insert_student_query = f'INSERT INTO students (name, second_name) VALUES(%s, %s)'
-insert_book_query = f'INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)'
-insert_group_query = f'INSERT INTO `groups` (title, start_date, end_date) VALUES(%s, %s, %s)'
-insert_subject_query = f'INSERT INTO subjets (title) VALUES (%s)'
-insert_lesson_query = f'INSERT INTO lessons (title, subject_id) VALUES (%s, %s)'
-insert_mark_query = f'INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)'
+insert_student_query = "INSERT INTO students (name, second_name) VALUES(%s, %s)"
+insert_book_query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
+insert_group_query = "INSERT INTO `groups` (title, start_date, end_date) VALUES(%s, %s, %s)"
+insert_subject_query = "INSERT INTO subjets (title) VALUES (%s)"
+insert_lesson_query = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
+insert_mark_query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
 
-select_students_join_marks_query = f'''
-SELECT s.name, s.second_name, m.value 
-FROM students s 
-JOIN marks m ON s.id = m.student_id 
+select_students_join_marks_query = '''
+SELECT s.name, s.second_name, m.value
+FROM students s
+JOIN marks m ON s.id = m.student_id
 WHERE s.id = %s
 '''
-select_students_join_books_query = f'''
-SELECT s.name, s.second_name, b.title 
-FROM students s 
-JOIN books b ON s.id = b.taken_by_student_id 
+select_students_join_books_query = '''
+SELECT s.name, s.second_name, b.title
+FROM students s
+JOIN books b ON s.id = b.taken_by_student_id
 WHERE s.id = %s
 '''
-select_join_all_query = f'''
-SELECT s.name, s.second_name, g.title AS `group`, b.title AS book, 
-m.value AS mark, l.title AS lesson, sub.title AS subject 
-FROM students s 
-JOIN `groups` g ON s.group_id = g.id 
-JOIN books b ON s.id = b.taken_by_student_id 
-JOIN marks m ON s.id = m.student_id 
-JOIN lessons l ON l.id = m.lesson_id 
-JOIN subjets sub ON sub.id = l.subject_id 
+select_join_all_query = '''
+SELECT s.name, s.second_name, g.title AS `group`, b.title AS book,
+m.value AS mark, l.title AS lesson, sub.title AS subject
+FROM students s
+JOIN `groups` g ON s.group_id = g.id
+JOIN books b ON s.id = b.taken_by_student_id
+JOIN marks m ON s.id = m.student_id
+JOIN lessons l ON l.id = m.lesson_id
+JOIN subjets sub ON sub.id = l.subject_id
 WHERE s.id = %s
 '''
 
@@ -55,7 +55,7 @@ cursor.executemany(
 cursor.execute(insert_group_query, ('History', 'may 14', 'feb 14'))
 group_id = cursor.lastrowid
 
-cursor.execute(f'UPDATE students SET group_id  = %s WHERE id = %s', (group_id, student_id))
+cursor.execute('UPDATE students SET group_id  = %s WHERE id = %s', (group_id, student_id))
 
 cursor.execute(insert_subject_query, ['Geology subject'])
 subject_geo_id = cursor.lastrowid
