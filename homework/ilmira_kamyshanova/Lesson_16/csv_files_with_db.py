@@ -33,10 +33,12 @@ db.close()
 homework_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 data_file_path = os.path.join(homework_path, 'eugene_okulik', 'Lesson_16', 'hw_data', 'data.csv')
 
+
 def read_file():
     with open(data_file_path, newline='') as csv_file:
         for row in csv.DictReader(csv_file):
             yield row
+
 
 for line in read_file():
     if line not in data_from_db:
