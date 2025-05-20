@@ -14,7 +14,6 @@ def read_log_file(file_path):
             yield line
 
 
-
 def find_searched_phrase(text, target_text):
     result_text = []
     words_list = text.split()
@@ -24,7 +23,6 @@ def find_searched_phrase(text, target_text):
             end_index = min(len(words_list), i + 6)
             result_text = ' '.join(words_list[start_index:end_index])
     return result_text
-
 
 
 found_log_list = []
@@ -39,4 +37,3 @@ for file in files:
             print(f'5 words before and after "{args.text}": ')
             print(find_searched_phrase(log_line, args.text))
             print('-------------------------------------------------------------------')
-
