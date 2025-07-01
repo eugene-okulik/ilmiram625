@@ -8,11 +8,13 @@ def message():
     yield
     print("Testing completed")
 
+
 @pytest.fixture(scope='function')
 def message_for_tests():
     print("before test")
     yield
     print("after test")
+
 
 @pytest.fixture()
 def new_object_id():
@@ -49,6 +51,7 @@ bodies = [{
     "name": "New object-3"
 }]
 
+
 @pytest.mark.critical
 @pytest.mark.parametrize('body', bodies)
 def test_post_object(message, message_for_tests, body):
@@ -58,6 +61,7 @@ def test_post_object(message, message_for_tests, body):
     assert response.json()['id']
     assert response.json()['name'] == body['name']
     assert response.json()['data'] == body['data']
+
 
 @pytest.mark.medium
 def test_put_object(new_object_id, message_for_tests):
