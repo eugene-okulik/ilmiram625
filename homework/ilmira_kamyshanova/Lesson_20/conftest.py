@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+
 @pytest.fixture(scope='session')
 def message():
     print("Start testing")
