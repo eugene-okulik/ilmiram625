@@ -9,17 +9,21 @@ from endpoints.update_object import UpdateObject
 def post_endpoint():
     return CreateObject()
 
+
 @pytest.fixture()
 def put_endpoint():
     return UpdateAll()
+
 
 @pytest.fixture()
 def patch_endpoint():
     return UpdateObject()
 
+
 @pytest.fixture()
 def delete_endpoint():
     return DeleteObject()
+
 
 @pytest.fixture()
 def new_object_id(post_endpoint, delete_endpoint):

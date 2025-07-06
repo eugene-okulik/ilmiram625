@@ -7,7 +7,7 @@ class Endpoint:
     json = None
 
     @allure.step('Name, id and data is correct')
-    def check_data(self, data, name = None):
+    def check_data(self, data, name=None):
         assert 'id' in self.json
         assert self.json['id']
         if name:

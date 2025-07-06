@@ -21,6 +21,7 @@ bodies = [{
     "name": "New object-3"
 }]
 
+
 @allure.title('Post new object')
 @allure.feature('Create/update objects')
 @allure.story('Create objects')
@@ -30,6 +31,7 @@ def test_post_object(post_endpoint, body):
     post_endpoint.create_new_object(body)
     post_endpoint.check_status_code()
     post_endpoint.check_data(body['data'], body['name'])
+
 
 @allure.title('Update all in object')
 @allure.feature('Create/update objects')
