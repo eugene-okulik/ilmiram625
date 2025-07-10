@@ -15,5 +15,5 @@ class Endpoint:
         assert self.json['data'] == data
 
     @allure.step('Check status code is 200')
-    def check_status_code(self):
+    def check_status_code_is_200(self):
         assert self.response.status_code == 200, f'Status code is "{self.response.status_code}", not 200!'

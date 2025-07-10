@@ -12,6 +12,6 @@ class CreateObject(Endpoint):
         self.json = self.response.json()
         return self.response
 
-    @allure.step('Status code is 201')
-    def check_status_code(self):
-        assert self.response.status_code == 201, f'Status code is "{self.response.status_code}", not 201!'
+    @allure.step('Status code is 200')
+    def check_status_code_is_200(self):
+        assert self.response.status_code == 200, f'Status code is "{self.response.status_code}", not 200!'
