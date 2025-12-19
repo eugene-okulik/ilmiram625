@@ -14,6 +14,7 @@ def driver():
     yield chrome_driver
     chrome_driver.quit()
 
+
 def test_item_in_cart_new_tab(driver):
     driver.get('http://testshop.qa-practice.com')
     driver.implicitly_wait(15)
