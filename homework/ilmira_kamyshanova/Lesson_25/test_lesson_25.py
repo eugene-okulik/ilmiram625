@@ -1,4 +1,6 @@
 import os
+import random
+
 import pytest
 from faker import Faker
 from selenium import webdriver
@@ -53,10 +55,13 @@ def test_fill_the_form(driver):
     driver.find_element(By.ID, 'dateOfBirthInput').send_keys(Keys.CONTROL + 'a')
     driver.find_element(By.ID, 'dateOfBirthInput').send_keys(faker.date_of_birth().strftime('%d %b %Y'))
     driver.find_element(By.CLASS_NAME, 'react-datepicker__day--selected').click()
-    driver.find_element(By.ID, 'subjectsInput').send_keys(faker.language_name())
+    subject = driver.find_element(By.ID, 'subjectsInput')
+    subject.send_keys(random.choice('abcdefghijklmnopqrstuvwxyz'))
+    subject.send_keys(Keys.ENTER)
 
     driver.execute_script("window.scrollBy(0, 200);")
-    driver.find_element(By.CSS_SELECTOR, "label[for='hobbies-checkbox-2']").click()
+    wait = WebDriverWait(driver, 20)
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "label[for='hobbies-checkbox-2']"))).click()
     driver.find_element(By.ID, 'uploadPicture').send_keys(file_path)
     driver.find_element(By.ID, 'currentAddress').send_keys(faker.address())
 
