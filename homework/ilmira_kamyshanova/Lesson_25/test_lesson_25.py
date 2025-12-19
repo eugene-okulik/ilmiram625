@@ -56,7 +56,7 @@ def test_fill_the_form(driver):
     driver.find_element(By.ID, 'dateOfBirthInput').send_keys(faker.date_of_birth().strftime('%d %b %Y'))
     driver.find_element(By.CLASS_NAME, 'react-datepicker__day--selected').click()
     subject = driver.find_element(By.ID, 'subjectsInput')
-    subject.send_keys(random.choice('abcdefghijklmnopqrstuvwxyz'))
+    subject.send_keys(random.choice('aeiou'))
     subject.send_keys(Keys.ENTER)
 
     driver.execute_script("window.scrollBy(0, 200);")
