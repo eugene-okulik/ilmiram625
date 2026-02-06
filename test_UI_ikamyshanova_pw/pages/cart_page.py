@@ -28,4 +28,3 @@ class CartPage(BasePage):
     def is_cart_to_be_empty(self):
         expect(self.find_element(self.EMPTY_CART)).to_have_text('Your cart is empty!')
         expect(self.find_element(self.ORDER_OVERVIEW)).to_have_text('Order overview')
-

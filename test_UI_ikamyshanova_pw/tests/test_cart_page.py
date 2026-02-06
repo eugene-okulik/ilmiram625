@@ -11,4 +11,3 @@ class TestCartPage:
         cart_page.remove_items()
 
         cart_page.is_cart_to_be_empty()
-
