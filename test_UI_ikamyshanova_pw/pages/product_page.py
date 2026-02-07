@@ -23,16 +23,14 @@ class ProductPage(BasePage):
     def is_cart_not_empty(self):
         expect(self.find_element(self.NOT_EMPTY_CART)).to_be_visible()
 
-    @allure.step('Get number of products in cart')
-    def number_of_products_in_cart(self):
-        return self.find_element(self.NOT_EMPTY_CART).text_content()
+    @allure.step('Check number of products in cart')
+    def check_number_of_products_in_cart(self):
+        expect(self.find_element(self.NOT_EMPTY_CART)).to_have_text('1')
 
-    @allure.step('Get price of product')
-    def get_product_price(self):
-        price_element = self.find_element(self.PRICE)
-        return price_element.text_content()
+    @allure.step('Check price of product')
+    def check_product_price(self):
+        expect(self.find_element(self.PRICE)).to_have_text('280.00')
 
-    @allure.step('Get name of product')
-    def get_product_name(self):
-        name_element = self.find_element(self.NAME)
-        return name_element.text_content()
+    @allure.step('Check name of product')
+    def check_product_name(self):
+        expect(self.find_element(self.NAME)).to_have_text('Office Design Software')

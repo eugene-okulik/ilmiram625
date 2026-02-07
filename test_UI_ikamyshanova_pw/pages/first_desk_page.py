@@ -10,13 +10,13 @@ class FirstDeskPage(BasePage):
     FIRST_PRODUCT = "a:has-text('Customizable Desk')"
     CART_ICON = "a[aria-label='eCommerce cart']"
 
-    @allure.step('Count products in the page')
-    def get_product_count(self):
-        products = self.find_element(self.PRODUCTS)
-        return len(products)
+    @allure.step('Check count products in the page')
+    def check_product_count(self):
+        expect(self.find_element(self.PRODUCTS)).to_have_count(9)
 
-    def select_first_product_name(self):
-        return self.find_element(self.FIRST_PRODUCT).text_content()
+    @allure.step('Check first product name')
+    def check_first_product_name(self):
+        expect(self.find_element(self.FIRST_PRODUCT)).to_have_text('Customizable Desk')
 
     @allure.step('Check of visibility Cart icon')
     def is_cart_icon_displayed(self):
