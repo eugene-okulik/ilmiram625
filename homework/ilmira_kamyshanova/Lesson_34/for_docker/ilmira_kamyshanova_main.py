@@ -8,4 +8,3 @@ while sec_time < life_time:
     print(f'Hello from docker! Time is {datetime.now()}')
     sec_time += 1
     time.sleep(2)
-	
